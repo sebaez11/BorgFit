@@ -17,7 +17,7 @@ public class Customer {
 	@Column(name = "identification_number")
 	private String identificationNumber;
 
-	@Column(name = "staff_id")
+	@Column(name = "staff_id", nullable = true)
 	private String staffId;
 
 	private String names;
@@ -35,7 +35,7 @@ public class Customer {
 	private boolean active;
 
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name = "identificationNumber")
+	@JoinColumn(name = "staff_id" , insertable = false , updatable = false)
 	private Staff staff;
 
 	public String getStaffId() {

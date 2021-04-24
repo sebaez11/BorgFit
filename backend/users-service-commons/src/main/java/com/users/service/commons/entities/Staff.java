@@ -35,7 +35,7 @@ public class Staff {
 	private boolean active;
 
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "role_id" , insertable = false , updatable = false)
 	private Role role;
 
 	public Short getRoleId() {
