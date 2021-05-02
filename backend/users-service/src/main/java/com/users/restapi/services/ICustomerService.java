@@ -2,7 +2,7 @@ package com.users.restapi.services;
 
 import java.util.List;
 
-import com.users.service.commons.entities.Customer;
+import com.commons.users.service.entities.Customer;
 
 public interface ICustomerService {
 	
@@ -10,5 +10,6 @@ public interface ICustomerService {
 	public Customer findById(String id);
 	public Customer save(Customer customer);
 	public void deleteById(String id);
+	public Customer findByEmail(String email);
 	
 }

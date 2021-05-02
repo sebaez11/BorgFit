@@ -1,4 +1,4 @@
-package com.users.service.commons.entities;
+package com.commons.users.service.entities;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -9,9 +9,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "staff")
 public class Staff {
+
 
 	@Id
 	@Column(name = "identification_number")
@@ -27,6 +30,7 @@ public class Staff {
 
 	@Column(unique = true)
 	private String email;
+	private String password;
 	private String address;
 
 	@Column(name = "phone_number")
@@ -36,6 +40,7 @@ public class Staff {
 
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "role_id" , insertable = false , updatable = false)
+	@JsonIgnoreProperties(value = {"staff" , "hibernateLazyInitializer"})
 	private Role role;
 
 	public Short getRoleId() {
@@ -84,6 +89,15 @@ public class Staff {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getAddress() {

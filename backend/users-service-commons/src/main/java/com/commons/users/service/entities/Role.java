@@ -1,4 +1,4 @@
-package com.users.service.commons.entities;
+package com.commons.users.service.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,9 +10,12 @@ import javax.persistence.Table;
 @Table(name = "roles")
 public class Role {
 	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Short id;
+	
+	private String name;
 	
 	
 	public Short getId() {
@@ -27,7 +30,7 @@ public class Role {
 	public void setName(String name) {
 		this.name = name;
 	}
-	private String name;
+	
 	
 	
 }

@@ -5,9 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.commons.users.service.entities.Customer;
 import com.users.restapi.repositories.CustomerRepository;
 import com.users.restapi.services.ICustomerService;
-import com.users.service.commons.entities.Customer;
 
 
 @Service
@@ -34,6 +34,11 @@ public class CustomerServiceImpl implements ICustomerService {
 	@Override
 	public void deleteById(String id) {
 		customerRepository.deleteById(id);
+	}
+
+	@Override
+	public Customer findByEmail(String email) {
+		return customerRepository.findByEmail(email);
 	}
 
 }
