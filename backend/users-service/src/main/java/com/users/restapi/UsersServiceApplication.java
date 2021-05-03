@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 
+
 @EntityScan({"com.commons.users.service.entities"})
 @SpringBootApplication
 public class UsersServiceApplication {

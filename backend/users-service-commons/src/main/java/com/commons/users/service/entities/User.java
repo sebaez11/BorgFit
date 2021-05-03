@@ -1,14 +1,21 @@
 package com.commons.users.service.entities;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
+import com.commons.memberships.service.entities.Membership;
+import com.commons.reservations.service.entities.Reservation;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -21,6 +28,9 @@ public class User {
 
 	@Column(name = "role_id")
 	private Short roleId;
+	
+	@Column(name = "membership_id" , nullable = true)
+	private Short membershipId;
 	
 	@Column(name = "coach_id" , nullable = true)
 	private String coachId;
@@ -43,6 +53,11 @@ public class User {
 	private boolean active;
 	
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "membership_id" , insertable = false , updatable = false)
+	private Membership membership;
+
+	
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "role_id" , insertable = false , updatable = false)
 	@JsonIgnoreProperties(value = {"user" , "hibernateLazyInitializer"})
 	private Role role;
@@ -51,6 +66,19 @@ public class User {
 	@JoinColumn(name = "coach_id" , insertable = false , updatable = false)
 	@JsonIgnoreProperties(value = {"user" , "hibernateLazyInitializer"})
 	private User coach;
+	
+	@ManyToMany(fetch = FetchType.LAZY , cascade = CascadeType.ALL)
+	@JoinTable(
+	name = "users_reservations",
+	joinColumns = @JoinColumn(name = "user_id"),
+	inverseJoinColumns = @JoinColumn(name = "reservation_id"),
+	uniqueConstraints = {
+			@UniqueConstraint(
+					columnNames = { "user_id", "reservation_id" }
+			) 
+	}
+	)
+	private List<Reservation> reservations;
 
 	public String getIdentificationNumber() {
 		return identificationNumber;
