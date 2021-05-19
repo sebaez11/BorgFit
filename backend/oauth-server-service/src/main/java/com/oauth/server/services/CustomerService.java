@@ -14,7 +14,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.commons.users.service.entities.Customer;
 import com.oauth.server.clients.CustomerFeignClient;
 
 
@@ -30,9 +29,9 @@ public class CustomerService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 		log.info("entró");
 		
-		Customer customer = customerFeignClient.findByEmail(email);
+		com.commons.entities.service.entities.User user = customerFeignClient.findByEmail(email);
 		
-		if(customer == null) {
+		if(user == null) {
 			throw new UsernameNotFoundException("Credenciales inválidas. Intente de nuevo.");
 		}
 		
@@ -43,7 +42,7 @@ public class CustomerService implements UserDetailsService {
 		
 		log.info("Usuario autenticado");
 		
-		return new User(customer.getEmail() , customer.getPassword() , customer.isActive() , 
+		return new User(user.getEmail() , user.getPassword() , user.isActive() , 
 						true , true, true, authorities);
 	}
 

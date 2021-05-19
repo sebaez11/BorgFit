@@ -5,8 +5,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 
-
-@EntityScan({"com.commons.users.service.entities"})
+/**
+ * It is the entrypoint for users microservice.
+ * The annotation "EntityScan" invoke a project that works
+ * like commons entity on microservices.
+ *
+ */
+@EntityScan({"com.commons.entities.service.entities"})
 @SpringBootApplication
 public class UsersServiceApplication {
 

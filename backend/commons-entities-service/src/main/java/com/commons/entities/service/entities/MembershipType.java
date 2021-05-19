@@ -1,4 +1,4 @@
-package com.routines.restapi.entities;
+package com.commons.entities.service.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,21 +6,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-
-/**
- *Represents a group that contains routines.
- */
 @Entity
-@Table(name = "routines_group")
-public class RoutinesGroup {
+@Table(name = "memberships_type")
+public class MembershipType {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Short id;
 	
 	private String name;
-	private String photo;
-	
+	private double cost;
 	
 	public Short getId() {
 		return id;
@@ -34,11 +29,11 @@ public class RoutinesGroup {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getPhoto() {
-		return photo;
+	public double getCost() {
+		return cost;
 	}
-	public void setPhoto(String photo) {
-		this.photo = photo;
+	public void setCost(double cost) {
+		this.cost = cost;
 	}
 	
 }

@@ -1,5 +1,9 @@
 package com.users.restapi.utils;
 
+
+/**
+ *Fill responses up with this messages
+ */
 public class Constants {
 
 	public static final String SEVERITY_INFO = "info";

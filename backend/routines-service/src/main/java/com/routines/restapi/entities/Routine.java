@@ -17,6 +17,11 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 
+
+/**
+ * routine entity. it has a relationship with 
+ * RoutinesGroup entity and Workout entity.
+ */
 @Entity
 @Table(name = "routines")
 public class Routine {

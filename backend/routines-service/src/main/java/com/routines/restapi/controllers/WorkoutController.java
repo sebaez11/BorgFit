@@ -11,20 +11,24 @@ import com.routines.restapi.entities.Workout;
 import com.routines.restapi.services.IWorkoutService;
 
 
+/**
+ *Controls the workout requests
+ */
 @RestController
 public class WorkoutController {
 	
 	@Autowired
 	private IWorkoutService iWorkoutService;
 
+	
+	/**
+	 * 
+	 * @param id routine attribute to find workouts relationed with itself.
+	 * @return a workout list.
+	 */
 	@GetMapping("/{id}/workouts")
 	public List<Workout> findByRoutinesId(Long id){
 		return iWorkoutService.findByRoutines_id(id);
 	}
 	
-	@GetMapping("/ejemplo/{id}")
-	public Optional<Workout> findById(Long id) {
-		Workout workout = iWorkoutService.findById(id).orElse(null);
-		return Optional.of(workout);
-	}
 }

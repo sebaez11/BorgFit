@@ -6,6 +6,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
+/**
+ *Workout entity.
+ */
 @Entity
 @Table(name = "workouts")
 public class Workout {

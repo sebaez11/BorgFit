@@ -20,8 +20,8 @@
 	</properties>
 	<dependencies>
 		<dependency>
-			<groupId>com.commons.reservations</groupId>
-			<artifactId>reservations-commons-service</artifactId>
+			<groupId>com.commons.entities</groupId>
+			<artifactId>commons-entities-service</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>

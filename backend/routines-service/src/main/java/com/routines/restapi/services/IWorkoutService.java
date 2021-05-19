@@ -5,6 +5,10 @@ import java.util.Optional;
 
 import com.routines.restapi.entities.Workout;
 
+
+/**
+ *Represents an agreement with the class implements it.
+ */
 public interface IWorkoutService {
 
 	public List<Workout> findAll();

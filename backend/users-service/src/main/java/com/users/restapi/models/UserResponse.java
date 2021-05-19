@@ -3,6 +3,11 @@ package com.users.restapi.models;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
+
+/**
+ * Represents an centralized container that will contain
+ * all response types, with a status object.
+ */
 @JsonInclude(Include.NON_NULL)
 public class UserResponse {
 

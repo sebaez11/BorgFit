@@ -2,7 +2,8 @@ package com.users.restapi.services;
 
 import java.util.List;
 
-import com.commons.users.service.entities.User;
+import com.commons.entities.service.entities.User;
+
 
 public interface IUserService {
 	

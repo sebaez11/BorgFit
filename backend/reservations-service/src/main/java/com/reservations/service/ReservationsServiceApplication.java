@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @SpringBootApplication
-@EntityScan({"com.commons.reservations.service.entities"})
+@EntityScan({"com.commons.entities.service.entities"})
 public class ReservationsServiceApplication {
 
 	public static void main(String[] args) {

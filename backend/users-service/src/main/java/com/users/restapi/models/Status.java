@@ -1,5 +1,9 @@
 package com.users.restapi.models;
 
+
+/**
+ * This class represents a status for all user responses
+ */
 public class Status {
 
 	private Integer statusCode;

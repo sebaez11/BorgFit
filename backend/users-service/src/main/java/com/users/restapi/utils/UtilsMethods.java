@@ -7,13 +7,30 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
 
 import com.users.restapi.models.UserResponse;
 
+
+/**
+ *Represents a centralized container that contains 
+ *all possible responses on users microservice.
+ */
 @Configuration
 public class UtilsMethods {
 
+	
+	/**
+	 * 
+	 * @param userResponse - a generic user response on users microservice.
+	 * @return an object userResponse with a transaction status.
+	 */
 	public ResponseEntity<UserResponse> response(UserResponse userResponse){
 		return new ResponseEntity<>(userResponse , HttpStatus.valueOf(userResponse.getStatus().getStatusCode()));
 	}
 	
+	
+	/**
+	 * 
+	 * @param userResponse - a generic user response on users microservice.
+	 * This kind of methods fill the user response up of metadata.
+	 */
 	public void responseOk(UserResponse userResponse) {
 		userResponse.getStatus().setStatusCode(HttpStatus.CREATED.value());
 		userResponse.getStatus().setStatusDescription(Constants.SUCCESS_MESSAGE);

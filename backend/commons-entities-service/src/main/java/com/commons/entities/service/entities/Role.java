@@ -1,4 +1,4 @@
-package com.routines.restapi.entities;
+package com.commons.entities.service.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,18 +8,21 @@ import javax.persistence.Table;
 
 
 /**
- *Represents a group that contains routines.
+ * Role entity describes a user role on platform.
+ * It can be "ROLE_CUSTOMER", "ROLE_COACH",
+ * "ROLE_ADMIN" o "ROLE_ADMINISTRATIVE".
+ *
  */
 @Entity
-@Table(name = "routines_group")
-public class RoutinesGroup {
+@Table(name = "roles")
+public class Role {
+	
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Short id;
 	
 	private String name;
-	private String photo;
 	
 	
 	public Short getId() {
@@ -34,11 +37,7 @@ public class RoutinesGroup {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getPhoto() {
-		return photo;
-	}
-	public void setPhoto(String photo) {
-		this.photo = photo;
-	}
+	
+	
 	
 }
