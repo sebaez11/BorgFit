@@ -73,12 +73,7 @@ public class User {
 	@JoinTable(
 	name = "users_reservations",
 	joinColumns = @JoinColumn(name = "user_id"),
-	inverseJoinColumns = @JoinColumn(name = "reservation_id"),
-	uniqueConstraints = {
-			@UniqueConstraint(
-					columnNames = { "user_id", "reservation_id" }
-			) 
-	}
+	inverseJoinColumns = @JoinColumn(name = "reservation_id")
 	)
 	private List<Reservation> reservations;
 

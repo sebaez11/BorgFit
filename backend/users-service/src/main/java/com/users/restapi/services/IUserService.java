@@ -12,4 +12,6 @@ public interface IUserService {
 	public User save(User user);
 	public void deleteById(String id);
 	public User findByEmail(String email);
+	public List<User> findAllByRoleName(String role);
+	
 }

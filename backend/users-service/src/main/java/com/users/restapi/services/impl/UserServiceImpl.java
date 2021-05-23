@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.commons.entities.service.entities.Role;
 import com.commons.entities.service.entities.User;
+import com.users.restapi.repositories.RoleRepository;
 import com.users.restapi.repositories.UserRepository;
 import com.users.restapi.services.IUserService;
 
@@ -20,7 +22,7 @@ public class UserServiceImpl implements IUserService {
 
 	@Autowired
 	private UserRepository userRepository;
-	
+
 	
 	/**
 	 * Get all users on database.
@@ -63,6 +65,12 @@ public class UserServiceImpl implements IUserService {
 	@Override
 	public User findByEmail(String email) {
 		return userRepository.findByEmail(email);
+	}
+
+
+	@Override
+	public List<User> findAllByRoleName(String role) {
+		return userRepository.findByRole_name(role);
 	}
 
 }

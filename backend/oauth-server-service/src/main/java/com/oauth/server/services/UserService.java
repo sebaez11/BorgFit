@@ -14,22 +14,22 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.oauth.server.clients.CustomerFeignClient;
+import com.oauth.server.clients.UserFeignClient;
 
 
 @Service
-public class CustomerService implements UserDetailsService {
+public class UserService implements UserDetailsService {
 	
-	private Logger log = LoggerFactory.getLogger(CustomerService.class);
+	private Logger log = LoggerFactory.getLogger(UserService.class);
 	
 	@Autowired
-	private CustomerFeignClient customerFeignClient;
+	private UserFeignClient userFeignClient;
 
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 		log.info("entró");
 		
-		com.commons.entities.service.entities.User user = customerFeignClient.findByEmail(email);
+		com.commons.entities.service.entities.User user = userFeignClient.findByEmail(email);
 		
 		if(user == null) {
 			throw new UsernameNotFoundException("Credenciales inválidas. Intente de nuevo.");

@@ -1,16 +1,17 @@
 package com.users.restapi.controllers;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.commons.entities.service.entities.User;
 import com.users.restapi.models.UserResponse;
-import com.users.restapi.services.IUserService;
 import com.users.restapi.services.UserService;
 
 
@@ -21,21 +22,7 @@ import com.users.restapi.services.UserService;
 public class UserController {
 	
 	@Autowired
-	private IUserService iUserService;
-	
-	@Autowired
 	private UserService userService;
-	
-	
-	/**
-	 * 
-	 * @param email - user entity's attribute
-	 * @return an User object that matches with the email param.
-	 */
-	@GetMapping("/{email}")
-	public User findByEmail(@PathVariable String email) {
-		return iUserService.findByEmail(email);
-	}
 	
 	
 	/**
@@ -43,12 +30,67 @@ public class UserController {
 	 * @param user - receives an User object to be saved
 	 * @return Json Object with message according to the transaction.
 	 */
-	@PostMapping("/")
-	public ResponseEntity<UserResponse> save(@RequestBody User user){
-		return userService.save(user);
+	@PostMapping("/customers/")
+	public ResponseEntity<UserResponse> saveCustomer(@RequestBody User user){
+		return userService.save(user , "ROLE_CUSTOMER");
 	}
-	/*
-	@GetMapping("/")
-	public ResponseEntity*/
+	
+	/**
+	 * 
+	 * @param user - receives an User object to be saved
+	 * @return Json Object with message according to the transaction.
+	 */
+	@PostMapping("/coaches/")
+	public ResponseEntity<UserResponse> saveCoach(@RequestBody User user){
+		return userService.save(user , "ROLE_COACH");
+	}
+	
+	/**
+	 * 
+	 * @param user - receives an User object to be saved
+	 * @return Json Object with message according to the transaction.
+	 */
+	@PostMapping("/administratives/")
+	public ResponseEntity<UserResponse> saveAdministrative(@RequestBody User user){
+		return userService.save(user , "ROLE_ADMINISTRATIVE");
+	}
+	
+	/**
+	 * 
+	 * @return Json Object with message according to the transaction.
+	 */
+	@GetMapping("/customers/")
+	public ResponseEntity<UserResponse> findAllCustomers(){	
+		return userService.findAllByRoleName("ROLE_CUSTOMER");
+	}
+	
+	/**
+	 * 
+	 * @return Json Object with message according to the transaction.
+	 */
+	@GetMapping("/coaches/")
+	public ResponseEntity<UserResponse> findAllCoaches(){	
+		return userService.findAllByRoleName("ROLE_COACH");
+	}
+	
+	/**
+	 * 
+	 * @return Json Object with message according to the transaction.
+	 */
+	@GetMapping("/administratives/")
+	public ResponseEntity<UserResponse> findAllAdministratives(){	
+		return userService.findAllByRoleName("ROLE_ADMINISTRATIVE");
+	}
+
+	/**
+	 * 
+	 * @param email - user entity's attribute
+	 * @return an User object that matches with the email param.
+	 */
+	@GetMapping("/{id}")
+	public ResponseEntity<UserResponse> findById(@PathVariable String id) {
+		return userService.findById(id);
+	}
+	
 
 }
