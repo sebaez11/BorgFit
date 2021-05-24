@@ -37,6 +37,12 @@ public class UtilsMethods {
 		userResponse.getStatus().setSeverity(Constants.SEVERITY_INFO);
 	}
 	
+	public void responseUpdated(UserResponse userResponse) {
+		userResponse.getStatus().setStatusCode(HttpStatus.OK.value());
+		userResponse.getStatus().setStatusDescription(Constants.UPDATED_MESSAGE);
+		userResponse.getStatus().setSeverity(Constants.SEVERITY_INFO);
+	}
+	
 	public void responseBadRequest(UserResponse userResponse) {
 
 		userResponse.getStatus().setStatusCode(HttpStatus.BAD_REQUEST.value());

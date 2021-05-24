@@ -42,7 +42,10 @@ public class UserService {
 		
 		UserResponse userResponse = new UserResponse();
 		
-		if(iUserService.findByEmail(user.getEmail()) == null && iUserService.findById(user.getIdentificationNumber()) == null) {
+		boolean userExistsById = iUserService.existsById(user.getIdentificationNumber());
+		boolean userExistsByEmail = iUserService.existsByEmail(user.getEmail());
+		
+		if(!userExistsById && !userExistsByEmail) {
 			
 			
 			if(role == "ROLE_CUSTOMER" || role == "ROLE_COACH" || role == "ROLE_ADMINISTRATIVE") {
@@ -89,7 +92,6 @@ public class UserService {
 	
 	public ResponseEntity<UserResponse> findAllByRoleName(String role){
 		UserResponse userResponse = new UserResponse();
-		System.out.print(role);
 		if(role == "ROLE_CUSTOMER" || role == "ROLE_COACH" || role == "ROLE_ADMINISTRATIVE") {
 			try {
 				List<User> users = iUserService.findAllByRoleName(role);
@@ -123,6 +125,41 @@ public class UserService {
 			} catch (Exception e) {
 				utilsMethods.responseInternalServerError(userResponse);
 			}
+		}else {
+			utilsMethods.responseBadRequest(userResponse);
+		}
+		
+		return utilsMethods.response(userResponse);
+	}
+	
+	public ResponseEntity<UserResponse> update(User newUser , String id){
+		UserResponse userResponse = new UserResponse();
+		
+		boolean userExistsById = iUserService.existsById(id);
+		
+		if(userExistsById) {
+			
+			try {
+				
+				User user = iUserService.findById(id);
+				//user.setIdentificationNumber(newUser.getIdentificationNumber());
+				user.setNames(newUser.getNames());
+				user.setLastNames(newUser.getLastNames());
+				user.setEmail(newUser.getEmail());
+				user.setAddress(newUser.getAddress());
+				user.setPhoneNumber(newUser.getPhoneNumber());
+				user.setPhoto(newUser.getPhoto());
+				
+				iUserService.save(user);
+				utilsMethods.responseUpdated(userResponse);
+				
+			} catch (Exception e) {
+				System.out.print(e);
+				utilsMethods.responseInternalServerError(userResponse);
+			}
+			
+			
+			
 		}else {
 			utilsMethods.responseBadRequest(userResponse);
 		}

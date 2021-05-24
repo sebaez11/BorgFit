@@ -1,16 +1,20 @@
 package com.users.restapi.controllers;
 
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.commons.entities.service.entities.User;
+import com.users.restapi.dto.CreateUserDto;
+import com.users.restapi.dto.UserDto;
 import com.users.restapi.models.UserResponse;
 import com.users.restapi.services.UserService;
 
@@ -24,6 +28,9 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	@Autowired
+	private ModelMapper modelMapper;
+	
 	
 	/**
 	 * 
@@ -31,7 +38,8 @@ public class UserController {
 	 * @return Json Object with message according to the transaction.
 	 */
 	@PostMapping("/customers/")
-	public ResponseEntity<UserResponse> saveCustomer(@RequestBody User user){
+	public ResponseEntity<UserResponse> saveCustomer(@RequestBody CreateUserDto userDto){
+		User user = modelMapper.map(userDto, User.class);
 		return userService.save(user , "ROLE_CUSTOMER");
 	}
 	
@@ -41,7 +49,8 @@ public class UserController {
 	 * @return Json Object with message according to the transaction.
 	 */
 	@PostMapping("/coaches/")
-	public ResponseEntity<UserResponse> saveCoach(@RequestBody User user){
+	public ResponseEntity<UserResponse> saveCoach(@RequestBody CreateUserDto userDto){
+		User user = modelMapper.map(userDto, User.class);
 		return userService.save(user , "ROLE_COACH");
 	}
 	
@@ -51,7 +60,8 @@ public class UserController {
 	 * @return Json Object with message according to the transaction.
 	 */
 	@PostMapping("/administratives/")
-	public ResponseEntity<UserResponse> saveAdministrative(@RequestBody User user){
+	public ResponseEntity<UserResponse> saveAdministrative(@RequestBody CreateUserDto userDto){
+		User user = modelMapper.map(userDto, User.class);
 		return userService.save(user , "ROLE_ADMINISTRATIVE");
 	}
 	
@@ -92,5 +102,10 @@ public class UserController {
 		return userService.findById(id);
 	}
 	
+	@PutMapping("/{id}")
+	public ResponseEntity<UserResponse> update(@RequestBody UserDto userDto , @PathVariable String id){
+		User user = modelMapper.map(userDto, User.class);
+		return userService.update(user, id);
+	}
 
 }

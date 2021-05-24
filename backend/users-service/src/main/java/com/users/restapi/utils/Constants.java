@@ -11,6 +11,7 @@ public class Constants {
 	public static final String SEVERITY_ERROR = "error";
 	
 	public static final String SUCCESS_MESSAGE = "Transaccion exitosa";
+	public static final String UPDATED_MESSAGE = "actualización exitosa";
 	public static final String INTERNAL_SERVER_ERROR_MESSAGE = "Error en el servidor";
 	public static final String BAD_REQUEST_MESSAGE = "La información es incorrecta";
 	public static final String INVALID_EMAIL_MESSAGE = "Email ya se encuentra en uso";

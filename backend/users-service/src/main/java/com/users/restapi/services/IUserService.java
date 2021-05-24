@@ -7,6 +7,8 @@ import com.commons.entities.service.entities.User;
 
 public interface IUserService {
 	
+	public boolean existsById(String id);
+	public boolean existsByEmail(String email);
 	public List<User> findAll();
 	public User findById(String id);
 	public User save(User user);

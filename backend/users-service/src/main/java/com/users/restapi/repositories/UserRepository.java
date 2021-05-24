@@ -13,8 +13,8 @@ import com.commons.entities.service.entities.User;
  */
 public interface UserRepository extends CrudRepository<User, String> {
 
+	public boolean existsByEmail(String email);
 	public User findByEmail(String email);
-	
 	public List<User> findByRole_name(String role);
 	
 }

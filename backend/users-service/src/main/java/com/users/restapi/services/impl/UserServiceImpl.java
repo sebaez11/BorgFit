@@ -5,9 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.commons.entities.service.entities.Role;
 import com.commons.entities.service.entities.User;
-import com.users.restapi.repositories.RoleRepository;
 import com.users.restapi.repositories.UserRepository;
 import com.users.restapi.services.IUserService;
 
@@ -71,6 +69,18 @@ public class UserServiceImpl implements IUserService {
 	@Override
 	public List<User> findAllByRoleName(String role) {
 		return userRepository.findByRole_name(role);
+	}
+
+
+	@Override
+	public boolean existsById(String id) {
+		return userRepository.existsById(id);
+	}
+
+
+	@Override
+	public boolean existsByEmail(String email) {
+		return userRepository.existsByEmail(email);
 	}
 
 }
