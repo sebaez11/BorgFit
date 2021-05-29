@@ -2,6 +2,7 @@ package com.users.restapi.models;
 
 import java.util.List;
 
+import com.commons.entities.service.entities.Status;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.users.restapi.dto.UserDto;
