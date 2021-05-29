@@ -71,25 +71,6 @@ public class UserService {
 		
 	}
 	
-	public ResponseEntity<UserResponse> findAll(){
-		UserResponse userResponse = new UserResponse();
-		
-		try {
-			List<User> users = iUserService.findAll();
-			List<UserDto> usersDto = users.stream()
-					.map(user -> modelMapper.map(user, UserDto.class))
-					.collect(Collectors.toList());
-			
-			userResponse.setUsers(usersDto);
-			utilsMethods.responseOk(userResponse);
-		} catch (Exception e) {
-			utilsMethods.responseInternalServerError(userResponse);
-		}
-		
-		return utilsMethods.response(userResponse);
-		
-	}
-	
 	public ResponseEntity<UserResponse> findAllByRoleName(String role){
 		UserResponse userResponse = new UserResponse();
 		if(role == "ROLE_CUSTOMER" || role == "ROLE_COACH" || role == "ROLE_ADMINISTRATIVE") {
@@ -116,14 +97,19 @@ public class UserService {
 		UserResponse userResponse = new UserResponse();
 		
 		if(id != null) {
-			try {
-				User user = iUserService.findById(id);
-				UserDto userDto = modelMapper.map(user, UserDto.class);
-				userResponse.setUser(userDto);
-				utilsMethods.responseOk(userResponse);
-				
-			} catch (Exception e) {
-				utilsMethods.responseInternalServerError(userResponse);
+			boolean userExists = iUserService.existsByIdAndActiveTrue(id);
+			if(userExists) {
+				try {
+					User user = iUserService.findById(id);
+					UserDto userDto = modelMapper.map(user, UserDto.class);
+					userResponse.setUser(userDto);
+					utilsMethods.responseOk(userResponse);
+					
+				} catch (Exception e) {
+					utilsMethods.responseInternalServerError(userResponse);
+				}				
+			}else {
+				utilsMethods.responseUserNotFound(userResponse);
 			}
 		}else {
 			utilsMethods.responseBadRequest(userResponse);
@@ -135,9 +121,9 @@ public class UserService {
 	public ResponseEntity<UserResponse> update(User newUser , String id){
 		UserResponse userResponse = new UserResponse();
 		
-		boolean userExistsById = iUserService.existsById(id);
+		boolean userExists = iUserService.existsByIdAndActiveTrue(id);
 		
-		if(userExistsById) {
+		if(userExists) {
 			
 			try {
 				
@@ -161,7 +147,32 @@ public class UserService {
 			
 			
 		}else {
-			utilsMethods.responseBadRequest(userResponse);
+			utilsMethods.responseUserNotFound(userResponse);
+		}
+		
+		return utilsMethods.response(userResponse);
+	}
+	
+	public ResponseEntity<UserResponse> deactivate(String id){
+		UserResponse userResponse = new UserResponse();
+		
+		boolean userExists = iUserService.existsByIdAndActiveTrue(id);
+		
+		if(userExists) {
+			
+			try {
+				User user = iUserService.findById(id);
+				user.setActive(false);
+				iUserService.save(user);
+				
+				utilsMethods.responseOk(userResponse);
+				
+			} catch (Exception e) {
+				utilsMethods.responseInternalServerError(userResponse);
+			}
+			
+		}else {
+			utilsMethods.responseUserNotFound(userResponse);
 		}
 		
 		return utilsMethods.response(userResponse);

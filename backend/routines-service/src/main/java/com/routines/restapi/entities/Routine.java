@@ -16,6 +16,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import com.commons.entities.service.entities.User;
+
 
 
 /**
@@ -53,6 +55,14 @@ public class Routine {
 	}
 	)
 	private List<Workout> workouts;
+	
+	@ManyToMany(fetch = FetchType.LAZY , cascade = CascadeType.ALL)
+	@JoinTable(
+	name = "routines_users",
+	joinColumns = @JoinColumn(name = "routine_id"),
+	inverseJoinColumns = @JoinColumn(name = "user_id")
+	)
+	private List<User> users;
 
 
 	public Long getId() {
@@ -93,9 +103,35 @@ public class Routine {
 	public void setWorkouts(List<Workout> workouts) {
 		this.workouts = workouts;
 	}
-	
-	
-	
-	
+
+
+	public Short getRoutinesGroupId() {
+		return routinesGroupId;
+	}
+
+
+	public void setRoutinesGroupId(Short routinesGroupId) {
+		this.routinesGroupId = routinesGroupId;
+	}
+
+
+	public RoutinesGroup getRoutinesGroup() {
+		return routinesGroup;
+	}
+
+
+	public void setRoutinesGroup(RoutinesGroup routinesGroup) {
+		this.routinesGroup = routinesGroup;
+	}
+
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
 	
 }

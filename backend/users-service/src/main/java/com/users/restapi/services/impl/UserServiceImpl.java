@@ -68,7 +68,7 @@ public class UserServiceImpl implements IUserService {
 
 	@Override
 	public List<User> findAllByRoleName(String role) {
-		return userRepository.findByRole_name(role);
+		return userRepository.findByActiveTrueAndRole_name(role);
 	}
 
 
@@ -81,6 +81,12 @@ public class UserServiceImpl implements IUserService {
 	@Override
 	public boolean existsByEmail(String email) {
 		return userRepository.existsByEmail(email);
+	}
+
+
+	@Override
+	public boolean existsByIdAndActiveTrue(String id) {
+		return userRepository.existsByIdentificationNumberAndActiveTrue(id);
 	}
 
 }
