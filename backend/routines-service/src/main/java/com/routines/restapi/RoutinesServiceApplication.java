@@ -13,7 +13,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  */
 @EnableEurekaClient
 @SpringBootApplication
-@EntityScan({"com.commons.entities.service.entities"})
+@EntityScan(basePackages = {"com.routines.restapi.entities", "com.commons.entities.service.entities"})
 public class RoutinesServiceApplication {
 
 	public static void main(String[] args) {
