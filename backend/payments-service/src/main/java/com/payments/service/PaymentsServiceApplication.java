@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @SpringBootApplication
-@EntityScan({"com.commons.entities.service.entities"})
+@EntityScan(basePackageClasses = {com.payments.service.entities.Payment.class,com.commons.entities.service.entities.User.class})
 public class PaymentsServiceApplication {
 
 	public static void main(String[] args) {

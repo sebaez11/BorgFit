@@ -1,0 +1,1 @@
+INSERT INTO `payments` (amount , date , user_id) VALUES(45000 , '2021-05-29' , '1122122653');

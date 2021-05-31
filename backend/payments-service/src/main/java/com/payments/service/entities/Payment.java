@@ -1,6 +1,6 @@
 package com.payments.service.entities;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -16,6 +16,7 @@ import javax.persistence.Table;
 import com.commons.entities.service.entities.User;
 
 
+
 @Entity
 @Table(name = "payments")
 public class Payment {
@@ -24,14 +25,14 @@ public class Payment {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private LocalDateTime date;
+	private LocalDate date;
 	private double amount;
-	
-	@Column(name = "user_id")
-	private Short userId;
+
+	@Column(name = "user_id" , nullable = false)
+	private String userId;
 
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	@JoinColumn(name = "user_id" , insertable = false , nullable = false)
+	@JoinColumn(name = "user_id" , insertable = false , updatable = false)
 	private User user;
 
 	public Long getId() {
@@ -42,11 +43,11 @@ public class Payment {
 		this.id = id;
 	}
 
-	public LocalDateTime getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
 
-	public void setDate(LocalDateTime date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
 
@@ -64,6 +65,14 @@ public class Payment {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 }

@@ -15,8 +15,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
-
-import com.commons.entities.service.entities.User;
+/*
+import com.commons.entities.service.entities.User;*/
 
 
 
@@ -32,6 +32,7 @@ public class Routine {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(nullable = true)
 	private String description;
 	private Short level;
 	
@@ -55,14 +56,14 @@ public class Routine {
 	}
 	)
 	private List<Workout> workouts;
-	
+	/*
 	@ManyToMany(fetch = FetchType.LAZY , cascade = CascadeType.ALL)
 	@JoinTable(
 	name = "routines_users",
 	joinColumns = @JoinColumn(name = "routine_id"),
 	inverseJoinColumns = @JoinColumn(name = "user_id")
 	)
-	private List<User> users;
+	private List<User> users;*/
 
 
 	public Long getId() {
@@ -124,7 +125,7 @@ public class Routine {
 		this.routinesGroup = routinesGroup;
 	}
 
-
+/*
 	public List<User> getUsers() {
 		return users;
 	}
@@ -132,6 +133,6 @@ public class Routine {
 
 	public void setUsers(List<User> users) {
 		this.users = users;
-	}
+	}*/
 	
 }

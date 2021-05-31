@@ -7,4 +7,5 @@ package com.routines.restapi.services;
  */
 public interface IRoutineService {
 
+	
 }
