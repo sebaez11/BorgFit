@@ -55,5 +55,4 @@ public class Workout {
 		this.photo = photo;
 	}
 	
-	
 }

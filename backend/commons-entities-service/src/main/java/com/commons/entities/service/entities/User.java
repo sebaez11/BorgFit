@@ -197,4 +197,12 @@ public class User {
 		this.membership = membership;
 	}
 
+	public List<Reservation> getReservations() {
+		return reservations;
+	}
+
+	public void setReservations(List<Reservation> reservations) {
+		this.reservations = reservations;
+	}
+
 }

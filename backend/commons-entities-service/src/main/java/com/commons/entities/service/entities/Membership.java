@@ -1,6 +1,6 @@
 package com.commons.entities.service.entities;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -22,16 +22,16 @@ public class Membership {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Short id;
 	
-	@Column(name = "type_id")
+	@Column(name = "type_id" , nullable = false)
 	private Short typeId;
 	
 	private boolean active;
 	
 	@Column(name = "start_date")
-	private LocalDateTime startDate;
+	private LocalDate startDate;
 	
 	@Column(name = "final_date")
-	private LocalDateTime finalDate;
+	private LocalDate finalDate;
 
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "type_id" , insertable = false , updatable = false)
@@ -61,19 +61,19 @@ public class Membership {
 		this.active = active;
 	}
 
-	public LocalDateTime getStartDate() {
+	public LocalDate getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(LocalDateTime startDate) {
+	public void setStartDate(LocalDate startDate) {
 		this.startDate = startDate;
 	}
 
-	public LocalDateTime getFinalDate() {
+	public LocalDate getFinalDate() {
 		return finalDate;
 	}
 
-	public void setFinalDate(LocalDateTime finalDate) {
+	public void setFinalDate(LocalDate finalDate) {
 		this.finalDate = finalDate;
 	}
 
@@ -84,6 +84,5 @@ public class Membership {
 	public void setType(MembershipType type) {
 		this.type = type;
 	}
-	
 	
 }
