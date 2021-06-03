@@ -49,7 +49,7 @@ public class UserService {
 			
 			
 			if(role == "ROLE_CUSTOMER" || role == "ROLE_COACH" || role == "ROLE_ADMINISTRATIVE") {
-				Short roleId = iRoleService.findByName(role).getId();
+				Integer roleId = iRoleService.findByName(role).getId();
 				user.setRoleId(roleId);				
 			}else {
 				utilsMethods.responseInternalServerError(userResponse);

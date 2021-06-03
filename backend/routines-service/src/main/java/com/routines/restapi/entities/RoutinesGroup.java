@@ -16,16 +16,16 @@ public class RoutinesGroup {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Short id;
+	private Integer id;
 	
 	private String name;
 	private String photo;
 	
 	
-	public Short getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(Short id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getName() {

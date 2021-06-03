@@ -20,7 +20,7 @@ public class Membership {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Short id;
+	private Integer id;
 	
 	@Column(name = "type_id" , nullable = false)
 	private Short typeId;
@@ -37,11 +37,11 @@ public class Membership {
 	@JoinColumn(name = "type_id" , insertable = false , updatable = false)
 	private MembershipType type;
 
-	public Short getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Short id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

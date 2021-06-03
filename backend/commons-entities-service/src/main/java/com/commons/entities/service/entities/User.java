@@ -30,7 +30,7 @@ public class User {
 	private String identificationNumber;
 
 	@Column(name = "role_id")
-	private Short roleId;
+	private Integer roleId;
 
 	@Column(name = "membership_id", nullable = true)
 	private Short membershipId;
@@ -85,11 +85,11 @@ public class User {
 		this.identificationNumber = identificationNumber;
 	}
 
-	public Short getRoleId() {
+	public Integer getRoleId() {
 		return roleId;
 	}
 
-	public void setRoleId(Short roleId) {
+	public void setRoleId(Integer roleId) {
 		this.roleId = roleId;
 	}
 
