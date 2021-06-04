@@ -1,6 +1,8 @@
 package com.routines.restapi.repositories;
 
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.data.jpa.repository.Modifying;
@@ -19,5 +21,7 @@ public interface RoutineRepository extends CrudRepository<Routine, Integer> {
 	@Transactional
 	@Query(value = "INSERT INTO routines_users (routine_id , user_id) VALUES(?1 , ?2)" , nativeQuery = true)
 	public void addRoutineToUser(Integer routine_id , String user_id);
+	
+	public List<Routine> findByUsers_identificationNumber(String id);
 	
 }

@@ -14,8 +14,11 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import com.commons.entities.service.entities.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 
@@ -40,6 +43,7 @@ public class Routine {
 	
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "routine_group_id" , insertable = false , updatable = false)
+	@JsonIgnoreProperties(value = { "routine", "hibernateLazyInitializer" })
 	private RoutinesGroup routinesGroup;
 	
 
@@ -52,10 +56,14 @@ public class Routine {
 	private List<Workout> workouts;
 	
 	@ManyToMany(fetch = FetchType.LAZY)
+	@JsonIgnore
 	@JoinTable(
 	name = "routines_users",
 	joinColumns = @JoinColumn(name = "routine_id"),
-	inverseJoinColumns = @JoinColumn(name = "user_id")
+	inverseJoinColumns = @JoinColumn(name = "user_id"),
+	uniqueConstraints = {
+			@UniqueConstraint(columnNames = {"routine_id" , "user_id"})
+	}
 	)
 	private List<User> users;
 
