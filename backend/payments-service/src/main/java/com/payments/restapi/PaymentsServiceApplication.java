@@ -1,11 +1,15 @@
-package com.payments.service;
+package com.payments.restapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @SpringBootApplication
-@EntityScan(basePackageClasses = {com.payments.service.entities.Payment.class,com.commons.entities.service.entities.User.class})
+@EntityScan(basePackageClasses = {com.payments.restapi.entities.Payment.class,
+									com.commons.entities.service.entities.User.class,
+									com.commons.entities.service.entities.Status.class
+								 }
+			)
 public class PaymentsServiceApplication {
 
 	public static void main(String[] args) {

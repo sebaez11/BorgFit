@@ -1,4 +1,4 @@
-package com.payments.service.entities;
+package com.payments.restapi.entities;
 
 import java.time.LocalDate;
 
