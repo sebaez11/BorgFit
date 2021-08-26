@@ -1,0 +1,22 @@
+{
+  "name": "software-engineering-subject-project",
+  "version": "1.0.0",
+  "description": "Borgfit gym application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebaez11/BorgFit.git"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "author": "Sebastian Baez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sebaez11/BorgFit/issues"
+  },
+  "homepage": "https://github.com/sebaez11/BorgFit#readme"
+}
