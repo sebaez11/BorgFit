@@ -13,6 +13,10 @@ public class PaymentResponse {
 	private Status status;
 	private List<PaymentDto> payments;
 	
+	public PaymentResponse() {
+		this.status = new Status();
+	}
+	
 	public Status getStatus() {
 		return status;
 	}

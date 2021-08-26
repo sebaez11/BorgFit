@@ -17,6 +17,7 @@ import com.commons.entities.service.entities.User;
 import com.users.restapi.dto.CreateUserDto;
 import com.users.restapi.dto.UserDto;
 import com.users.restapi.models.UserResponse;
+import com.users.restapi.repositories.UserRepository;
 import com.users.restapi.services.UserService;
 
 
@@ -32,6 +33,8 @@ public class UserController {
 	@Autowired
 	private ModelMapper modelMapper;
 	
+	@Autowired
+	private UserRepository userRepo;
 	
 	/**
 	 * 
@@ -112,6 +115,11 @@ public class UserController {
 	@DeleteMapping("/{id}")
 	public ResponseEntity<UserResponse> deactivate(@PathVariable String id){
 		return userService.deactivate(id);
+	}
+	
+	@GetMapping("/users/{id}")
+	public boolean existsById(@PathVariable String id) {
+		return userRepo.existsByIdentificationNumber(id);
 	}
 
 }
