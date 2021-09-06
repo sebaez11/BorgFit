@@ -14,10 +14,12 @@ import com.commons.entities.service.entities.User;
  */
 public interface UserRepository extends CrudRepository<User, String> {
 
-	public boolean existsByIdentificationNumber(@PathVariable String id);
+	public boolean existsByIdentificationNumberAndPassword(String idenfiticationNumber, String password);
+	public boolean existsByIdentificationNumber(String id);
 	public boolean existsByEmail(String email);
 	public boolean existsByIdentificationNumberAndActiveTrue(String id);
 	public User findByEmail(String email);
+	public User findByIdentificationNumber(String id);
 	public List<User> findByActiveTrueAndRole_name(String role);
 	
 }

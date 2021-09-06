@@ -4,6 +4,7 @@ package com.users.restapi.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.commons.entities.service.entities.User;
 import com.users.restapi.dto.CreateUserDto;
 import com.users.restapi.dto.UserDto;
+import com.users.restapi.dto.UserLoginDto;
 import com.users.restapi.models.UserResponse;
 import com.users.restapi.repositories.UserRepository;
 import com.users.restapi.services.UserService;
@@ -25,6 +27,7 @@ import com.users.restapi.services.UserService;
  *UserController controls the user requests.
  */
 @RestController
+@CrossOrigin(origins = "http://127.0.0.1:5501")
 public class UserController {
 	
 	@Autowired
@@ -45,6 +48,11 @@ public class UserController {
 	public ResponseEntity<UserResponse> saveCustomer(@RequestBody CreateUserDto userDto){
 		User user = modelMapper.map(userDto, User.class);
 		return userService.save(user , "ROLE_CUSTOMER");
+	}
+	
+	@PostMapping("/customers/login/")
+	public ResponseEntity<UserResponse> loginCustomer(@RequestBody UserLoginDto userLoginDto){
+		return userService.login(userLoginDto, "ROLE_CUSTOMER");
 	}
 	
 	/**

@@ -89,4 +89,16 @@ public class UserServiceImpl implements IUserService {
 		return userRepository.existsByIdentificationNumberAndActiveTrue(id);
 	}
 
+
+	@Override
+	public boolean existsByIdentificationNumberAndPassword(String idenfiticationNumber, String password) {
+		return userRepository.existsByIdentificationNumberAndPassword(idenfiticationNumber, password);
+	}
+
+
+	@Override
+	public User findByIdentificationNumber(String id) {
+		return userRepository.findByIdentificationNumber(id);
+	}
+
 }

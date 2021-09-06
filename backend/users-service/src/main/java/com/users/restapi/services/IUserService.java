@@ -7,6 +7,8 @@ import com.commons.entities.service.entities.User;
 
 public interface IUserService {
 	
+	public boolean existsByIdentificationNumberAndPassword(String idenfiticationNumber, String password);
+	public User findByIdentificationNumber(String id);
 	public boolean existsById(String id);
 	public boolean existsByIdAndActiveTrue(String id);
 	public boolean existsByEmail(String email);

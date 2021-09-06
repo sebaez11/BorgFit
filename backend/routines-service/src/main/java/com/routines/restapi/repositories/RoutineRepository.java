@@ -23,5 +23,10 @@ public interface RoutineRepository extends CrudRepository<Routine, Integer> {
 	public void addRoutineToUser(Integer routine_id , String user_id);
 	
 	public List<Routine> findByUsers_identificationNumber(String id);
+	public List<Routine> findAllByRoutinesGroupId(Short id);
+	public List<Routine> findAll();
+	
+	@Query("SELECT r FROM Routine r where r.id = ?1")
+	public Routine findRoutineById(Integer id);
 	
 }

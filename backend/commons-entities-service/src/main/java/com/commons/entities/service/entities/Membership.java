@@ -27,7 +27,7 @@ public class Membership {
 	private Integer id;
 
 	@Column(name = "type_id", nullable = false)
-	private Short typeId;
+	private Integer typeId;
 
 	private boolean active;
 
@@ -54,11 +54,11 @@ public class Membership {
 		this.id = id;
 	}
 
-	public Short getTypeId() {
+	public Integer getTypeId() {
 		return typeId;
 	}
 
-	public void setTypeId(Short typeId) {
+	public void setTypeId(Integer typeId) {
 		this.typeId = typeId;
 	}
 

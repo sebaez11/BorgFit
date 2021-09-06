@@ -8,8 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.commons.entities.service.entities.Role;
 import com.commons.entities.service.entities.User;
+import com.users.restapi.clients.AuthFeignClient;
 import com.users.restapi.dto.UserDto;
+import com.users.restapi.dto.UserJwtDto;
+import com.users.restapi.dto.UserLoginDto;
 import com.users.restapi.models.UserResponse;
 import com.users.restapi.utils.UtilsMethods;
 
@@ -31,6 +35,9 @@ public class UserService {
 	
 	@Autowired
 	private ModelMapper modelMapper;
+	
+	@Autowired
+	private AuthFeignClient authClient;
 	
 	
 	/**
@@ -57,6 +64,7 @@ public class UserService {
 			
 			try {
 				user.setActive(true);
+				user.setPassword(utilsMethods.hashPassword(user.getPassword()));
 				iUserService.save(user);
 				utilsMethods.responseOk(userResponse);
 			} catch (Exception e) {
@@ -64,11 +72,55 @@ public class UserService {
 			}
 			
 		} else {
-			utilsMethods.responseBadRequest(userResponse);
+			utilsMethods.responseUnprocessableEntity(userResponse);
 		}
-		
+		System.out.print(userResponse);
 		return utilsMethods.response(userResponse);
 		
+	}
+	
+	
+	
+	
+	
+	public ResponseEntity<UserResponse> login(UserLoginDto userDto, String roleName){
+		UserResponse userResponse = new UserResponse();
+		try {
+			String identificationNumber = userDto.getIdentificationNumber();
+			String password = userDto.getPassword();
+			User user = iUserService.findByIdentificationNumber(identificationNumber);
+			if(user == null) {
+				utilsMethods.responseUserNotFound(userResponse);
+			}
+			boolean passwordMatched = utilsMethods.checkPassword(password, user.getPassword());
+			if(passwordMatched) {
+				try {
+					Integer roleId = user.getRoleId();
+					Role role = iRoleService.findById(roleId);
+					String roleNameUserDb = role.getName();
+					System.out.print(role.getName());
+					System.out.print(roleName);
+					if(roleNameUserDb.equals(roleName)) {
+						String token = authClient.getJwtToken(userDto);
+						UserJwtDto userJwtDto = new UserJwtDto();
+						userJwtDto.setIdentificationNumber(identificationNumber);
+						userJwtDto.setToken(token);
+						userResponse.setUserJwt(userJwtDto);
+						utilsMethods.responseOk(userResponse);
+					}else {
+						utilsMethods.responseUnauthorizedUser(userResponse);
+					}
+				} catch (Exception e) {
+					utilsMethods.responseInternalServerError(userResponse);
+				}
+			}else {
+				utilsMethods.responseUserNotFound(userResponse);
+			}
+		} catch (Exception e) {
+			utilsMethods.responseInternalServerError(userResponse);
+		}
+		System.out.print(userResponse);
+		return utilsMethods.response(userResponse);
 	}
 	
 	public ResponseEntity<UserResponse> findAllByRoleName(String role){

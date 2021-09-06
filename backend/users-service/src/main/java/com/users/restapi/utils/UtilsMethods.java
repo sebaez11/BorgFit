@@ -51,6 +51,14 @@ public class UtilsMethods {
 
 	}
 	
+	public void responseUnprocessableEntity(UserResponse userResponse) {
+		
+		userResponse.getStatus().setStatusCode(HttpStatus.UNPROCESSABLE_ENTITY.value());
+		userResponse.getStatus().setStatusDescription(Constants.NO_UNIQUE_INFORMATION_MESSAGE);
+		userResponse.getStatus().setSeverity(Constants.SEVERITY_ERROR);
+		
+	}
+	
 	public void responseInternalServerError(UserResponse userResponse) {
 		
 		userResponse.getStatus().setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
@@ -61,11 +69,20 @@ public class UtilsMethods {
 	
 	public void responseUserNotFound(UserResponse userResponse) {
 
-		userResponse.getStatus().setStatusCode(HttpStatus.BAD_REQUEST.value());
+		userResponse.getStatus().setStatusCode(HttpStatus.NOT_FOUND.value());
 		userResponse.getStatus().setStatusDescription(Constants.USER_NOT_FOUND_MESSAGE);
 		userResponse.getStatus().setSeverity(Constants.SEVERITY_ERROR);
 
 	}
+	
+	public void responseUnauthorizedUser(UserResponse userResponse) {
+
+		userResponse.getStatus().setStatusCode(HttpStatus.UNAUTHORIZED.value());
+		userResponse.getStatus().setStatusDescription(Constants.UNAUTHORIZED_USER);
+		userResponse.getStatus().setSeverity(Constants.SEVERITY_ERROR);
+
+	}
+	
 	
 	public String hashPassword(String plainTextPassword) {
 		return BCrypt.hashpw(plainTextPassword, BCrypt.gensalt());

@@ -32,7 +32,7 @@ public class User {
 	private Integer roleId;
 
 	@Column(name = "membership_id", nullable = true)
-	private Short membershipId;
+	private Integer membershipId;
 
 	@Column(name = "coach_id", nullable = true)
 	private String coachId;
@@ -180,11 +180,11 @@ public class User {
 		this.coach = coach;
 	}
 
-	public Short getMembershipId() {
+	public Integer getMembershipId() {
 		return membershipId;
 	}
 
-	public void setMembershipId(Short membershipId) {
+	public void setMembershipId(Integer membershipId) {
 		this.membershipId = membershipId;
 	}
 

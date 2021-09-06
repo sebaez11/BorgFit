@@ -43,7 +43,6 @@ public class Routine {
 	
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "routine_group_id" , insertable = false , updatable = false)
-	@JsonIgnoreProperties(value = { "routine", "hibernateLazyInitializer" })
 	private RoutinesGroup routinesGroup;
 	
 
