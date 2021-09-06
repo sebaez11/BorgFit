@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<script src="../components/include-html.js"></script>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.82.0">
+    <link rel="shortcut icon" href="../home/imagenes/recurso.png">
+    <title>LOGIN</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/heroes/">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+        
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="../assets/dist/css/heroes.css" rel="stylesheet">
+</head>
+
+
+<body style="background-image: url(../home/imagenes/brazo.jpg);">
+
+    <div data-include="../components/headerRegresar.html"></div>
+    <div class="b-example-divider"></div>
+    <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+        <div class="row align-items-center g-5 py-5">
+            <div class="col-lg-7 text-center text-lg-start">
+                <p class="col-lg-10 fs-4" style="color: white;">Es un placer poder contar contigo, gracias por elegirnos y gracias por ser parte de esta familia... recuerda, eres importante para nosotros</p>
+            </div>
+            <div class="col-10 mx-auto col-lg-5">
+                <form id="login-form" class="p-5 border rounded-3 bg-light">
+
+                    <div class="offset-2 col-8">
+                        <p class="is-invalid alert-danger" id="form-error">
+                            <!-- Form Error -->
+                            <!--/ Form Error -->
+                        </p>
+                    </div>
+
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="userId" placeholder="Número de identificación">
+                        <label for="userId">Número de identificación</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="userPassword" placeholder="Contraseña">
+                        <label for="userPassword">Contraseña</label>
+                    </div>
+                    <div class="checkbox mb-3">
+                        <label>
+                            <input type="checkbox" value="remember-me"> Remember me
+                        </label>
+                    </div>
+                    <button class="w-100 btn btn-lg btn-primary" type="submit">LOGIN</button>
+                    <hr class="my-4">
+                    <small class="text-muted">No have an account yet? <a href="../usuarios/registro.html">Register here.</a></small>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="b-example-divider"></div>
+
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/login.js"></script>
+
+
+</body>
+
+
+</html>

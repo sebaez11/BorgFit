@@ -1,0 +1,35 @@
+#header1 {
+    background: #2C305E;
+    color: aliceblue;
+}
+
+#rsource1 {
+    position: absolute;
+    width: 414px;
+    height: 94px;
+}
+
+#buscar-usuario {
+    background: #2C305E;
+    position: relative;
+    margin-top: 35px;
+    z-index: 10;
+    box-shadow: 0 0 10px rgba(0, 0, 0.5);
+    color: #FFFFFF;
+    font-size: 30px;
+}
+
+#footer {
+    position: relative;
+    margin-top: 65px;
+}
+
+#Datos {
+    background: #2C305E;
+    position: relative;
+    margin-top: 35px;
+    z-index: 10;
+    box-shadow: 0 0 10px rgba(0, 0, 0.5);
+    color: #FFFFFF;
+    font-size: 20px;
+}

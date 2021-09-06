@@ -1,0 +1,288 @@
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+.imgsart {
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+}
+
+#logo {
+    width: 180%;
+    height: 180%;
+}
+
+#crear {
+    margin-top: 8%;
+}
+
+div {
+    padding-left: 4%;
+    padding-right: 4%;
+}
+
+section button {
+    padding: 5px;
+    background: #2C305E;
+    color: white;
+    border-color: white;
+    border-radius: 20px
+}
+
+body {
+    color: #566787;
+    background: #f5f5f5;
+    font-size: 13px;
+}
+
+.table-wrapper {
+    min-width: 10%;
+    background: #F2F4F4;
+    border-radius: 6px;
+    box-shadow: 0 1px 1px #F2F4F4;
+    border: #09283C 1px solid;
+    -webkit-box-shadow: 3px 3px 0px #17202A;
+    margin-top: 8%;
+}
+
+.table-title {
+    padding: 4%;
+    background: #435d7d;
+    color: #fff;
+    padding: 1%;
+    margin-top: 2%;
+    border-radius: 3px 3px 0 0;
+    border: #09283C 1px solid;
+    -webkit-box-shadow: 3px 3px 0px #17202A;
+}
+
+.table-title h2 {
+    padding-top: 4%;
+    font-size: 24px;
+}
+
+.table-title .btn {
+    background-color: #229954;
+    color: #fff;
+    float: right;
+    font-size: 13px;
+    border: 2px;
+    min-width: 50px;
+    border-radius: 6px;
+    outline: none !important;
+}
+
+.table-title .btn i {
+    float: left;
+    font-size: 21px;
+    margin-right: 5px;
+}
+
+.table-title .btn span {
+    float: right;
+    margin-top: 2px;
+}
+
+table.table tr th,
+table.table tr td {
+    border-color: #e9e9e9;
+    vertical-align: middle;
+}
+
+table.table tr th:first-child {
+    width: 5%;
+}
+
+table.table tr th:last-child {
+    width: 10%;
+}
+
+table.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #fcfcfc;
+}
+
+table.table-striped.table-hover tbody tr:hover {
+    background: #f5f5f5;
+}
+
+table.table th i {
+    font-size: 200px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+table.table td:last-child i {
+    opacity: 0.9;
+    font-size: 22px;
+}
+
+#bodyy,
+#headd {
+    font-size: 1.3vw;
+}
+
+table.table td a {
+    font-weight: bold;
+    color: #566787;
+    display: inline-block;
+    text-decoration: none;
+    outline: none !important;
+}
+
+table.table td a:hover {
+    color: #2196F3;
+}
+
+table.table td a.edit {
+    color: #FFC107;
+}
+
+table.table td a.delete {
+    color: #F44336;
+}
+
+.pagination {
+    float: right;
+}
+
+.pagination li a {
+    font-size: 1vw;
+    border: none;
+    min-width: 30px;
+    min-height: 30px;
+    color: #999;
+    margin: 1%;
+    line-height: 30px;
+    border-radius: 2px !important;
+    text-align: center;
+    padding: 0 6px;
+}
+
+.pagination li a:hover {
+    color: #666;
+}
+
+.pagination li.active a,
+.pagination li.active a.page-link {
+    background: #03A9F4;
+}
+
+.pagination li.active a:hover {
+    background: #0397d6;
+}
+
+.pagination li.disabled i {
+    color: #ccc;
+}
+
+.pagination li i {
+    font-size: 16px;
+    padding-top: 6px
+}
+
+.hint-text {
+    float: left;
+    margin-top: 1px;
+    font-size: 1vw;
+}
+
+#bor1 {
+    margin-top: -90px;
+}
+
+#bor2 {
+    margin-top: -90px;
+}
+
+
+/* Modal styles */
+
+.modal .modal-dialog {
+    max-width: 400px;
+    text-align: center;
+    font-size: 18px;
+    margin-top: 10%;
+}
+
+.modal .modal-header,
+.modal .modal-body,
+.modal .modal-footer {
+    padding: 5%;
+    margin-left: 2px;
+    text-align: center;
+}
+
+.modal .modal-content {
+    border-radius: 6px;
+}
+
+.modal .modal-footer {
+    background: #ecf0f1;
+    border-radius: 0 0 3px 3px;
+    margin-bottom: 10px;
+    padding-right: 10%;
+    padding-left: 3%;
+}
+
+.modal .modal-title {
+    display: inline-block;
+    padding-right: 30px;
+    padding-left: 20px;
+}
+
+.modal .form-control {
+    border-radius: 2px;
+    box-shadow: none;
+    border-color: #dddddd;
+}
+
+.modal textarea.form-control {
+    resize: vertical;
+}
+
+.modal .btn {
+    border-radius: 8px;
+    min-width: 100px;
+    font-size: 15px;
+}
+
+.btn {
+    border-radius: 5px;
+    min-width: 100px;
+    font-size: 15px;
+    padding: 7px;
+}
+
+#ccc {
+    margin-left: 80%;
+}
+
+#hhh li {
+    border-radius: 5px;
+    min-width: 100px;
+    font-size: 15px;
+    padding-bottom: 5px;
+}
+
+.modal form label {
+    font-weight: normal;
+}
+
+table.table .avatar {
+    vertical-align: middle;
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+}

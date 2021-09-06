@@ -1,0 +1,48 @@
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 8.5rem;
+    }
+}
+
+#ccc .btn {
+    border-radius: 5px;
+    min-width: 100px;
+    font-size: 15px;
+    padding: 7px;
+    background-color: #0397d6;
+}
+
+#hhh li {
+    border-radius: 5px;
+    min-width: 100px;
+    font-size: 15px;
+}
+
+#ccc {
+    margin-right: 10px;
+}
+
+#cor {
+    background-color: #2C305E;
+    width: 700px;
+    color: white;
+    border-radius: 50px;
+    border: #09283C 1px solid;
+    -webkit-box-shadow: 1px 1px 0px #17202A;
+    margin-top: 5%;
+}
+
+.modal-content {
+    background-color: #ABB2B9;
+    border-radius: 4px;
+    border: #09283C 1px solid;
+    -webkit-box-shadow: 1px 1px 0px #17202A;
+}

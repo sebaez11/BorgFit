@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<script src="../components/include-html.js"></script>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.82.0">
+    <link rel="shortcut icon" href="../home/imagenes/recurso.png">
+    <title>VER USUARIOS</title>
+    <link rel="stylesheet" href="../administrativos/switch.css">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <div data-include="../components/estil.html"></div>
+    <!-- Custom styles for this template -->
+    <link href="carousel.css" rel="stylesheet">
+</head>
+
+<body>
+    <div data-include="../components/headerAdministrative.html"></div>
+
+    <main>
+        <hr class="my-4">
+        <div id="fondo" class="py-5 text-center container-fluid">
+            <div class="row g-5  justify-content-center">
+                <div id="cor" class="col-lg-6">
+                    <hr class="my-4">
+                    <h2 class="mb-3">CLIENTE</h2>
+                    <hr class="my-4">
+                    <form class="needs-validation" novalidate>
+                        <div class="row g-3" id="PersonalCustomerData">
+
+                            <div class="media">
+                                <img src="../usuarios/imagenes/default-profile.png" class="rounded-circle" height="50" />
+                                <div class="media-body">
+                                    <p class="ml-4">
+                                        <input required id="userPicture" type="file" name="photo">
+                                        <div class="invalid-feedback">
+                                            Este campo es requerido.
+                                        </div>
+                                    </p>
+                                </div>
+                            </div>
+                            <div>
+                                <p id="mem"><b>Membresía PRO</b></p>
+                                <label class="switch" value="false" id="sw">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+
+                            <div class="offset-2 col-8">
+                                <input required type="text" class="form-control" id="names" placeholder="Nombres" value="">
+                                <div class="invalid-feedback">
+                                    Este campo es requerido.
+                                </div>
+                            </div>
+
+                            <div class="offset-2 col-8">
+                                <input required type="text" class="form-control" id="lastNames" placeholder="Apellidos" value="">
+                                <div class="invalid-feedback">
+                                    Este campo es requerido.
+                                </div>
+                            </div>
+
+                            <div class="offset-2 col-8">
+                                <input required type="text" class="form-control" id="identificationNumber" placeholder="Número de identificación" value="">
+                                <div class="invalid-feedback">
+                                    Este campo es requerido y debe ser único.
+                                </div>
+                            </div>
+
+                            <div class="offset-2 col-8">
+                                <input required type="email" class="form-control" id="email" placeholder="Email">
+                                <div class="invalid-feedback">
+                                    Este campo es requerido y debe ser único.
+                                </div>
+                            </div>
+
+                            <div class="offset-2 col-8">
+                                <input required type="password" class="form-control" id="password" placeholder="Password">
+                                <div class="invalid-feedback">
+                                    Este campo es requerido.
+                                </div>
+                            </div>
+
+                            <div class="offset-2 col-8">
+                                <input required type="text" class="form-control" id="phoneNumber" placeholder="Teléfono">
+                                <div class="invalid-feedback">
+                                    Este campo es requerido.
+                                </div>
+                            </div>
+
+                            <div class="offset-2 col-8">
+                                <input required type="text" class="form-control" id="address" placeholder="Dirección">
+                                <div class="invalid-feedback">
+                                    Este campo es requerido.
+                                </div>
+                            </div>
+                            <hr class="my-4">
+                        </div>
+                        <div>
+                            <div class="btn-group me-2" role="group" aria-label="First group">
+                                <button onclick="updateCustomer()" type="button" class="btn btn-primary">Editar Datos</button>
+                            </div>
+                            <div class="btn-group me-2" role="group" aria-label="Second group">
+                                <!-- modal -->
+
+                                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Cambiar Contraseña</button>
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <label style="color: #070707"><b>Actualización de Contraseña</b></label>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form>
+                                                    <div class="mb-3">
+                                                        <label for="recipient-name" class="col-form-label" style="color: #070707;">Contraseña Anterior</label>
+                                                        <input type="text" class="form-control" id="recipient-name">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="recipient-name" class="col-form-label" style="color: #070707;">Contraseña Nueva</label>
+                                                        <input type="text" class="form-control" id="recipient-name">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="recipient-name" class="col-form-label" style="color: #070707;">Confirmar Contraseña</label>
+                                                        <input type="text" class="form-control" id="recipient-name">
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                                <button onclick="updateCustomerPassword()" type="button" class="btn btn-primary">Actualizar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- fin modal -->
+                            </div>
+                        </div>
+                        <hr class="my-4">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <hr class="my-4">
+        <!-- FOOTER -->
+        <div data-include="../components/footer.html"></div>
+        <div data-include="../components/copy.html"></div>
+    </main>
+
+
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/datos.js"></script>
+
+
+</body>
+
+</html>

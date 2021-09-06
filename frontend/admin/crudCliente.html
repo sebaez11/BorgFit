@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<script src="../components/include-html.js"></script>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.82.0">
+    <link rel="shortcut icon" href="imagenes/administratives/Recurso.png">
+    <title>CRUD CLIENTES</title>
+
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/administratives/estilos.css">
+
+    <div data-include="../components/estil.html"></div>
+</head>
+
+
+<body>
+    <div data-include="../components/headerCoach.html"></div>
+
+    <main>
+        <img src="imagenes/administratives/top2.jpg" alt="principal" width=100% id="bor1">
+        <hr class="my-4">
+        <div class="container" id="bor2">
+            <div class="table-responsive">
+                <div class="table-wrapper">
+                    <div class="table-title">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <h2><b>Clientes</b></h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <table class="table table-striped table-hover">
+                            <thead id="headd">
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Email</th>
+                                    <th>Teléfono</th>
+                                    <th>Cédula</th>
+                                    <th>Activo</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bodyy">
+
+                                <!-- ADMINISTRATIVE DATA -->
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Modal for delete administrative -->
+
+
+        <hr class="my-4">
+
+        <!-- FOOTER -->
+        <div data-include="../components/footer.html"></div>
+        <div data-include="../components/copy.html"></div>
+    </main>
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/getAllAdministratives.js"></script>
+
+
+</body>
+
+</html>

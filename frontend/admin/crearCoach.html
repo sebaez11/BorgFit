@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<script src="../components/include-html.js"></script>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.82.0">
+    <link rel="shortcut icon" href="../home/imagenes/recurso.png">
+    <title>CREAR COACH</title>
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../usuarios/css/estilos.css">
+
+    <div data-include="../components/estil.html"></div>
+</head>
+
+<body class="bg-light">
+
+    <div data-include="../components/headerCoach.html"></div>
+    <main>
+        <main>
+            <img src="../admin/imagenes/coach/top2.jpg" alt="principal" width=100%>
+            <hr class="my-4">
+            <div id="fondo" class="py-5 text-center container-fluid">
+                <div class="row g-5  justify-content-center">
+                    <div id="cor" class="col-lg-6">
+                        <hr class="my-4">
+                        <h2 class="mb-3">Crear Cuenta</h2>
+                        <hr class="my-4">
+                        <form id="user-register-form" class="needs-validation" novalidate>
+
+                            <div class="media">
+                                <img src="../usuarios/imagenes/default-profile.png" class="rounded-circle" height="50" />
+                                <div class="media-body">
+                                    <p class="ml-4">
+                                        <input required id="photo" type="file" name="photo">
+                                        <div class="invalid-feedback">
+                                            Este campo es requerido.
+                                        </div>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="row g-3">
+                                <div class="offset-2 col-8">
+                                    <p class="is-invalid alert-danger" id="form-error">
+
+                                    </p>
+                                </div>
+                                <div class="offset-2 col-8">
+                                    <input required type="text" class="form-control" id="names" placeholder="Nombres" value="">
+                                    <div class="invalid-feedback">
+                                        Este campo es requerido.
+                                    </div>
+                                </div>
+
+                                <div class="offset-2 col-8">
+                                    <input required type="text" class="form-control" id="lastNames" placeholder="Apellidos" value="">
+                                    <div class="invalid-feedback">
+                                        Este campo es requerido.
+                                    </div>
+                                </div>
+
+                                <div class="offset-2 col-8">
+                                    <input required type="text" class="form-control" id="identificationNumber" placeholder="Número de identificación" value="">
+                                    <div class="invalid-feedback">
+                                        Este campo es requerido y debe ser único.
+                                    </div>
+                                </div>
+
+                                <div class="offset-2 col-8">
+                                    <input required type="email" class="form-control" id="email" placeholder="Email">
+                                    <div class="invalid-feedback">
+                                        Este campo es requerido y debe ser único.
+                                    </div>
+                                </div>
+
+                                <div class="offset-2 col-8">
+                                    <input required type="password" class="form-control" id="password" placeholder="Password">
+                                    <div class="invalid-feedback">
+                                        Este campo es requerido.
+                                    </div>
+                                </div>
+
+                                <div class="offset-2 col-8">
+                                    <input required type="text" class="form-control" id="phoneNumber" placeholder="Teléfono">
+                                    <div class="invalid-feedback">
+                                        Este campo es requerido.
+                                    </div>
+                                </div>
+
+                                <div class="offset-2 col-8">
+                                    <input required type="text" class="form-control" id="address" placeholder="Dirección">
+                                    <div class="invalid-feedback">
+                                        Este campo es requerido.
+                                    </div>
+                                </div>
+
+                                <hr class="my-4">
+                                <button type="submit" class="col-8 offset-2 btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="on" style="margin-top: 1em;">Terminar registro</button>
+
+
+                            </div>
+
+                        </form>
+                        <hr class="my-4">
+                    </div>
+                </div>
+            </div>
+
+
+            <hr class="my-4">
+
+            <!-- FOOTER -->
+            <div data-include="../components/footer.html"></div>
+            <div data-include="../components/copy.html"></div>
+        </main>
+
+    </main>
+
+
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>

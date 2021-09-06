@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<script src="../components/include-html.js"></script>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.82.0">
+    <link rel="shortcut icon" href="imagenes/Recurso.png">
+    <title>MI PLAN</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/pricing/">
+
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <div data-include="../components/estil.html"></div>
+    <!-- Custom styles for this template -->
+    <link href="css/pricing.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="check" viewBox="0 0 16 16">
+    <title>Check</title>
+    <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+  </symbol>
+</svg>
+    <div data-include="../components/headerUsuarios.html"></div>
+    <hr class="my-4">
+    <hr class="my-4">
+    <div class="container py-3">
+
+        <div class="pricing-header p-3 pb-md-4" style="margin-top: 5%;">
+            <h1 class="display-4 fw-normal" style="color: #2C305E;">Mi Plan</h1>
+            <p class="fs-5 text-muted">A continuación podra encontrar detalles e historial de cargos, sobre el plan del que usted goza con nosotros.
+
+        </div>
+
+        <main>
+            <div class="row row-cols-1 row-cols-md-3 mb-3 text-center row d-flex justify-content-center">
+                <div class="col-center">
+                    <div class="card mb-4 rounded-3 shadow-sm">
+                        <div class="card-header py-3">
+                            <h4 class="my-0 fw-normal">Usuario</h4>
+                            <spam style="color: green;"> Activo</spam>
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <h1 class="card-title pricing-card-title">Gracias</h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li><label for="">Es un placer tenerte con nosotros, gracias por elegir BorgFit, estamos haciendo todo por tu felicidad y bienestar.</label></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card mb-4 rounded-3 shadow-sm">
+                        <div class="card-header py-3">
+                            <h4 class="my-0 fw-normal">Plan Fit</h4>
+                        </div>
+                        <div class="card-body">
+                            <h1 class="card-title pricing-card-title">$50<small class="text-muted fw-light">/mensual</small></h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li><label for="">Dispones actualmente de este plan, con el cual recibes entrenamiento personalizado de uno de nuestros asesores.</label></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="display-6  mb-4" style="color: #2C305E;">Historial de pagos</h2>
+            <div>
+                <section class="py-5 text-center container">
+                    <table class="table  table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Mes</th>
+                                <th scope="col" style="text-align: left;">Fecha</th>
+                                <th scope="col" style="text-align: left;">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="paymentHistoryTable">
+                            <!-- Payments history -->
+
+                            <!--/ Payments history -->
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+            <hr class="my-4">
+        </main>
+    </div>
+    <!-- FOOTER -->
+    <div data-include="../components/footer.html"></div>
+    <div data-include="../components/copy.html"></div>
+</body>
+
+<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/plan.js"></script>
+
+</html>
